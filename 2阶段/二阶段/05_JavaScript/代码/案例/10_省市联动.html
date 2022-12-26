@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<select id="sheng" onchange="changeSheng(this)">
+			
+		</select>
+		<select id="shi">
+			
+		</select>
+		<script>
+			//定义省份信息
+			var sheng = ['湖北省','湖南省','四川省'];
+			//定义市的信息
+			var shi = [['武汉','襄阳','黄冈','仙桃'],['长沙','岳阳','湘潭'],['成都','德阳','绵阳','攀枝花']]
+		
+			
+			//渲染省的数据
+			var s = "<option disabled>----请选择省份----</option>"
+			for (var i = 0; i < sheng.length; i++) {
+				s +=   `<option value='${i}'>${sheng[i]}</option>`
+			}
+			//将拼接的文本添加到sheng下拉框中
+			document.getElementById("sheng").innerHTML = s;
+			
+			
+			
+			//渲染市的数据（默认）
+			var c = "<option disabled>----请选择城市----</option>";
+			for (var i = 0; i < shi[0].length; i++) {
+				c += `<option>${shi[0][i]}</option>`
+			}
+			//将拼接的文本添加到shi下拉框中
+			document.getElementById("shi").innerHTML = c;
+			
+			//渲染市的数据
+			//获取选择的省份
+			function changeSheng(select){
+				var index = select.value;
+				var c = "<option disabled>----请选择城市----</option>";
+				for (var i = 0; i < shi[index].length; i++) {
+					c += `<option>${shi[index][i]}</option>`
+				}
+				//将拼接的文本添加到shi下拉框中
+				document.getElementById("shi").innerHTML = c;
+			}
+			
+		</script>
+	</body>
+</html>

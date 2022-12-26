@@ -1,0 +1,22 @@
+
+-- 1 列出emp表中各部门的部门号，最高工资，最低工资
+select deptno,max(sal),min(sal) from emp group by deptno;
+-- 2 列出emp表中各部门job为'CLERK'的员工的最低工资，最高工资
+select max(sal),min(sal) from emp where job = 'clerk' group by deptno;
+-- 3 对于emp中最低工资小于2000的部门
+select * from emp group by deptno having min(sal) < 2000;
+-- 3 列出job为'CLERK'的员工的部门号，最低工资，最高工资
+select deptno,min(sal),max(sal) from emp where job ='clerk';
+-- 4 根据部门号由高而低，工资有低而高列出每个员工的姓名，部门号，工资
+select * from emp order by deptno desc,sal;
+-- 5 列出'buddy'所在部门中每个员工的姓名与部门号
+select deptno from emp where ename = 'buddy';
+select ename,deptno from emp where deptno = (select deptno from emp where ename = 'buddy');
+-- 6 列出每个员工的姓名，工作，部门号，部门名
+select ename,job,emp.deptno,dname from emp inner join dept on emp.deptno = dept.deptno;
+-- 7 列出emp中工作为'CLERK'的员工的姓名，工作，部门号，部门名
+select ename,job,emp.deptno,dname from emp inner join dept on emp.deptno = dept.deptno where job = 'CLERK';
+-- 8 对于emp中有管理者的员工，列出姓名，管理者姓名
+select e1.ename,e2.ename from emp e1 inner join emp e2 on e1.mgr = e2.empno;
+-- 9 对于dept表中，列出所有部门名，部门号，同时列出各部门工作为'CLERK'的员工名与工作
+select dname,deptno,ename,job from emp right join dept on emp.deptno = dept.deptno where job = 'CLERK';

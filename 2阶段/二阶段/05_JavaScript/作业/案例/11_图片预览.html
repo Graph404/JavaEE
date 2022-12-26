@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" onchange="change(this)">
+			<img id="fileImg"  width="100px" height="100px" style="visibility: hidden;" ><br>
+			<input type="submit" value="提交"/>
+		</form>
+		
+		<script>
+			function change(e){
+				//将隐藏的图片显示出来
+				var img = document.getElementById("fileImg");
+				img.style.visibility = "visible";
+				//创建一个 DOMString，其中包含一个表示参数中给出的对象的URL
+				var url = window.URL.createObjectURL(e.files[0]);
+				//设置图片的地址(显示预览)
+				img.src = url;
+			}
+		</script>
+	</body>
+</html>

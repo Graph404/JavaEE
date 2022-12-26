@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 50%;
+				height: 350px;
+				margin: auto;
+				background-color: #6495ED;
+			}
+		
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img id="img" src="../img/33.jpg" width="100%" height="100%">
+		</div>
+		
+		<script>
+			var imgs = ['../img/33.jpg','../img/44.jpg','../img/55.jpg','../img/66.jpg'];
+			var index = 1;
+			var img = document.getElementById("img");	
+			setInterval(function(){
+				img.src = imgs[index];
+				index++;
+				if(index == imgs.length){
+					index = 0;
+				}
+			},2000)
+		</script>
+		
+	</body>
+</html>

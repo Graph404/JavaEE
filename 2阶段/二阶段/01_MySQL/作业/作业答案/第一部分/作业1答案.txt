@@ -1,0 +1,17 @@
+-- 1.找出奖金高于工资的雇员
+select * from emp where comm > sal;
+-- 2.找出奖金高于工资60%的雇员
+select * from emp where comm > sal*0.6;
+-- 3.找出部门10中所有经理和部门20中所有店员的信息
+select * from emp 
+	where (deptno = 10 and job = 'manager') or (deptno = 20 and job = 'CLERK');
+-- 4.薪资大于或等于2000的所有员工的信息。
+select * from emp where sal >= 2000;
+-- 5.查询没有奖金或者奖金低于100的员工信息
+select * from emp where comm is null or comm < 100;
+-- 6.查询姓名不带”R”的员工姓名
+select * from emp where  ename not like '%r%';
+-- 7.显示员工的姓名和入职时间，根据入职时间，将最老的员工排放在最前面。
+select ename,hiredate from emp order by hiredate;
+-- 8.查询所有员工的月薪（工资+奖金）
+select ename,sal + ifnull(comm,0) from emp;

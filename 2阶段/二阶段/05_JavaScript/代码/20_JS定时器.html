@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button onclick="f1()">开启任务(一次)</button>
+		<button onclick="f2()">取消任务(有内鬼)</button>
+		
+		
+		<button onclick="f3()">开启任务(多次)</button>
+		<button onclick="f4()">取消任务(有内鬼)</button>
+		<script>
+			var t1 ;
+			function f1(){
+				//定义定时任务，只会执行一次
+				//参数1:定时任务的回调函数  参数2：延迟时间
+				t1 = setTimeout(function(){
+					console.log("定时任务执行了...");
+				},2000);
+			}
+			function f2(){
+				//取消任务
+				clearTimeout(t1);
+			}
+			var t2;
+			function f3(){
+				//定义定时任务  会执行多次
+				//参数1：定义任务的回调函数  参数2：执行周期
+				t2 = setInterval(function(){
+					console.log("执行一次...");
+				},1000)
+			}
+			function f4(){
+				clearInterval(t2);
+			}
+		
+		</script>
+		
+	</body>
+</html>

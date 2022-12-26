@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	</head>
+	<body>
+		<img src="img/19.jpg" width="200px"/>
+		<input type="button" id="btn1" value="隐藏" />
+		<input type="button" id="btn2" value="淡出"/>
+		<input type="button" id="btn3" value="收起"/>
+		<input type="button" id="btn4" value="放大"/>
+	</body>
+</html>
+<script>
+	$(function(){
+		$("#btn1").click(function(){
+			if($("#btn1").val() == "隐藏"){
+				$("img").hide(1000);
+				$("#btn1").val("显示");
+			}else{
+				$("img").show(1000);
+				$("#btn1").val("隐藏");
+			}
+		})
+		
+		$("#btn2").click(function(){
+			if($("#btn2").val() == "淡出"){
+				$("img").fadeOut(2000);
+				$("#btn2").val("淡入");
+			}else{
+				$("img").fadeIn(2000);
+				$("#btn2").val("淡出");
+			}
+		});
+		
+		$("#btn3").click(function(){
+			if($("#btn3").val() == "收起"){
+				$("img").slideUp(2000);
+				$("#btn3").val("打开");
+			}else{
+				$("img").slideDown(2000);
+				$("#btn3").val("收起");
+			}
+		});
+		
+		$("#btn4").click(function(){
+			$("img").animate({
+				"width":"400px"
+			}, 500)
+			.animate({
+				"width":"200px"
+			}, 2000);
+		});
+	})
+</script>

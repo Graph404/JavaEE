@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			正则表达式：主要用于处理复杂字符串
+			
+			JS创建正则表达式对象：
+				方式1：var reg = new RegExp(正则表达式,匹配模式);
+				方式2：var reg = /正则表达式/匹配模式
+				
+			匹配模式：
+				i: 忽略大小写匹配
+				g: 全局匹配
+				m: 多行匹配
+		 -->
+		<script>
+			
+			//判断是否包含字母
+			// var reg = new RegExp("[a-z]");
+			// var s = "123";
+			// console.log(reg.test(s))
+			
+			//判断是否包含字母（不区分大小写）
+			// var reg = /[a-z]/i;
+			// var s = "ABC";
+			// console.log(reg.test(s))
+			
+			//判断是否包含数字
+			// var reg = /[0-9]/;
+			// var s = "cxk9";
+			// console.log(reg.test(s));
+			
+			//判断是否是纯数字
+			// var reg = /^[0-9]{1,}$/;
+			// var num = "1234a";
+			// console.log(reg.test(num));
+			
+			//切割
+			
+			//获取字符串中的所有的数字
+			// var s = "1a2b-3";
+			// var reg = /\D+/;
+			// console.log(s.split(reg));
+			
+			//替换
+			
+			//替换字符串中所有的字母      123456
+			//var s = "1A2b3C4d5e6"
+			//var reg = /[a-z]/ig;
+			//console.log(s.replace(reg,""));
+			
+			//查找
+			// var s = "三剑客的哈上课将13458598856大家看得见13412348856\n13456788858"
+			// var reg = /[1][35678][0-9]{9}/g
+			// console.log(s.match(reg));
+			
+			
+			//邮箱正则
+			
+		</script>
+	</body>
+</html>

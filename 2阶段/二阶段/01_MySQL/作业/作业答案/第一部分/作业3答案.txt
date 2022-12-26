@@ -1,0 +1,57 @@
+-- 1. 查询员工表所有数据
+select * from t_employees;
+-- 2. 查询 email 以 "N " 结尾的员工信息
+select * from t_employees where email like '%N';
+-- 3. 查询公司里所有的 manager_id(去除重复数据)
+select distinct manager_id from t_employees;
+-- 4. 按照入职日期由新到旧排列员工信息
+select * from t_employees order by hire_date desc;
+-- 5. 按照工资由高到低的顺序显示员工信息
+select * from t_employees order by salary desc;
+-- 6. 查询职位(JOB_ID)为'ST_CLERK'的员工的工资
+select salary from t_employees where job_id = 'ST_CLERK';
+-- 7. 查询 50 号部门的员工姓名以及全年工资
+select first_name,last_name,(salary + salary*IFNULL(COMMISSION_PCT,0))*12  
+from t_employees where DEPARTMENT_ID = 50;
+-- 8. 查询 80 号部门工资大于 7000 的员工的信息
+select * from t_employees where DEPARTMENT_ID = 80 and salary > 7000;
+-- 9. 查询工资高于 7000 但是没有提成的所有员工
+select * from t_employees where salary > 7000 and COMMISSION_PCT is null;
+-- 10. 查询入职日期在 1992-1-1 到 2012-12-31 之间的所有员工信息  
+select * from t_employees where HIRE_DATE between '1992-01-01' and '2012-12-31';
+-- 11. 显示first_name中没有'L'字的员工的详细信息
+select * from t_employees where FIRST_NAME not like '%L%';
+-- 12. 查询电话号码以 6 开头的所有员工信息
+select * from t_employees where PHONE_NUMBER like '6%';
+-- 13. 查询 80 号部门中 last_name 以 n 结尾的所有员工信息
+select * from t_employees where DEPARTMENT_ID = 80 and last_name like '%N';
+-- 14. 查询工资大于4000小于8000的员工信息
+select * from t_employees where salary > 4000 and salary < 8000;
+-- 15. 查询 first_name 中包含"na"的员工信息.
+select * from t_employees where FIRST_NAME like '%na%';
+-- 16. 显示公司里所有员工的工资级别 
+-- 级别 工资
+-- A <5000
+-- B >=5001 and <=8000
+-- C >=8001 and <=15000
+-- D >15000
+
+-- 17. 根据入职时间打印出员工级别
+-- 员工级别 入职时间
+-- 资深员工 2000 前（包含 2000）
+-- 普通员工 2001~2010（包含 2010）
+-- 新员工 2010 年后
+select 
+    last_name,salary,
+    case 
+       when hire_date <= '2000-12-31' then '资深员工'
+       when hire_date <= '2010-12-31' then '普通员工'
+			 else '新员工'
+    end
+from t_employees;
+-- 18. 请打印出 1992 年入职的员工
+select * from t_employees where hire_date between '1992-01-01' and '1992-12-31';
+-- 19. 把 hire_date 列看做是员工的生日,求本月过生日的员工（可能没有结果）
+select * from t_employees where month(hire_date) = MONTH(now()); 
+-- 20. 查询出员工表中最高工资，最低工资，和平均工资
+select max(salary),min(salary),avg(salary) from t_employees;

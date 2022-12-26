@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<fieldset style="width: 40%; margin: auto; background-color: antiquewhite;">
+		<legend>用户登录中心</legend>
+			<form action="#" method="get" onsubmit="return checkUsername() && checkPassword()">
+				<table  cellspacing="0px" cellpadding="10px" width="100%" border="1px"> 
+					<tr>
+						<td align="right">用户名</td>
+						<td>
+							<input type="text" name="username" id="username" placeholder="请输入用户名" onblur="checkUsername()">
+							<span id="uSpan"></span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">密码</td>
+						<td>
+							<input type="password" name="password" id="password" placeholder="请输入密码" onblur="checkPassword()">
+							<span id="pSpan"></span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">邮箱</td>
+						<td><input type="text" name="email" id="email" placeholder="请输入合法邮箱"></td>
+					</tr>
+					<tr align="center">
+						<td colspan="2"><input type="submit" value="登录"></td>
+					</tr>
+				</table>
+			</form>
+		</fieldset>
+		<script>
+			function checkUsername(){
+				//1、获取输入框内容
+				var username = document.getElementById("username").value;
+				var uSpan = document.getElementById("uSpan");
+				if(username == null || username == "" || username == undefined ){
+					uSpan.innerHTML = "用户名不能为空";
+					uSpan.style.color = "red";
+					return false;
+				}
+				//用户名正则，4到16位（字母，数字，下划线，减号）
+				var uPattern = /^[a-zA-Z0-9_-]{4,16}$/;
+				if(!uPattern.test(username)){
+					uSpan.innerHTML = "用户名不合法";
+					uSpan.style.color = "red";
+					return false;
+				}
+				
+				uSpan.innerHTML = "用户名可用";
+				uSpan.style.color = "green";
+				return true;
+			}
+			function checkPassword(){
+				//1、获取输入框内容
+				var password = document.getElementById("password").value;
+				var pSpan = document.getElementById("pSpan");
+				if(password == null || password == "" || password == undefined ){
+					pSpan.innerHTML = "密码不能为空";
+					pSpan.style.color = "red";
+					return false;
+				}
+				//密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符
+				var pPattern = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+				if(!pPattern.test(password)){
+					pSpan.innerHTML = "密码不合法";
+					pSpan.style.color = "red";
+					return false;
+				}
+				
+				pSpan.innerHTML = "密码可用";
+				pSpan.style.color = "green";
+				return true;
+			}
+		</script>
+	</body>
+</html>

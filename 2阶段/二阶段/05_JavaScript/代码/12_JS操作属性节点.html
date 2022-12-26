@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.aa{
+				font-size: 30px;
+				background-color: #FF7F50;
+				color: #6495ED;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="username" id="username">
+		<button onclick="f1()">点击获取输入框中的值</button>
+		<img src="img/1.jpg" width="200px" height="200px" id="img"/>
+		<button onclick="f2()">点击切换图片</button>
+		<input type="checkbox" name="hobby"/> 唱
+		<input type="checkbox" name="hobby"/>跳
+		<input type="checkbox" name="hobby"/>rap
+		<button onclick="checkAll()" id="btn">全选</button>
+		<button onclick="checkOther()" id="btn">反选</button>
+		
+		<div id="d1">这是个div</div>
+		<button onclick="f4()">点击改变样式</button>
+		
+		<script>
+			function f4(){
+				var div = document.getElementById("d1");
+				//div.style.fontSize = "30px";
+				//div.style.color = "#ff8765";
+				//div.style.backgroundColor ="#6495ED";
+				//直接设置class属性
+				div.className = "aa";
+			}
+		
+			function checkOther(){
+				var hobbys = document.getElementsByName("hobby");
+				for (var i = 0; i < hobbys.length; i++) {
+					hobbys[i].checked = !hobbys[i].checked;
+				}
+			}
+			function checkAll(){
+				var btn = document.getElementById("btn");
+				if(btn.innerHTML == "全选"){
+					var hobbys = document.getElementsByName("hobby");
+					for (var i = 0; i < hobbys.length; i++) {
+						hobbys[i].checked = true;
+					}
+					btn.innerHTML = "全不选";
+				}else{
+					var hobbys = document.getElementsByName("hobby");
+					for (var i = 0; i < hobbys.length; i++) {
+						hobbys[i].checked = false;
+					}
+					btn.innerHTML = "全选";
+				}
+				
+			}
+		
+			function f1(){
+				var input = document.getElementById("username");
+				console.log(input.value);
+			}
+			function f2(){
+				var img = document.getElementById("img");
+				if(img.src == 'http://127.0.0.1:8848/03_JavaScript/img/1.jpg'){
+					img.src = "img/3.jpg";
+				}else{
+					img.src = "img/1.jpg";
+				}
+				
+			}
+		</script>
+	</body>
+</html>

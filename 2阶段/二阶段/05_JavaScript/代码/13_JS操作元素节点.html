@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="city">
+			<li id="wh">武汉</li>
+			<li>北京</li>
+			<li>上海</li>
+			<li>深圳</li>
+		</ul>
+		<input type="text" id="name" />
+		<button onclick="f1()">点击添加一项(默认添加到最后)</button>
+		<button onclick="f2()">点击添加一项(添加到指定的位置)</button>
+		<button onclick="f3()">点击删除(删除子元素)</button>
+		<button onclick="f4()">点击删除(删除元素)</button>
+		<script>
+			function f4(){
+				var ul = document.getElementById("city");
+				ul.remove()
+			}
+			function f3(){
+				var ul = document.getElementById("city");
+				var wh = document.getElementById("wh");
+				ul.removeChild(wh);
+			}
+			function f2(){
+				//1、获取输入框中的内容
+				var name = document.getElementById("name").value;
+				if(!name){
+					alert("输入内容不能为空");
+					return;
+				}
+				
+				//创建li标签并添加文本节点
+				var li = document.createElement("li");
+				li.innerHTML = name;
+				
+				//将li标签添加到指定位置
+				var ul = document.getElementById("city");
+				var wh = document.getElementById("wh");
+				
+				ul.insertBefore(li,wh);
+			}
+			
+		
+			function f1(){
+				//1、获取输入框中的内容
+				var name = document.getElementById("name").value;
+				if(!name){
+					alert("输入内容不能为空");
+					return;
+				}
+				
+				//创建一个li标签
+				var li = document.createElement("li");
+				//将文本添加到li标签中
+				li.innerHTML = name;
+				//将创建的li标签添加到ul中
+				var ul = document.getElementById("city");
+				ul.appendChild(li);
+			}
+		
+		</script>
+	</body>
+</html>

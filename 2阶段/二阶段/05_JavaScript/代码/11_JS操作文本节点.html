@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1"><span>这是p标签</span></p>
+		
+		<button onclick="f1()">点击获取p标签的内容</button>
+		<button onclick="f2()">点击设置p标签的内容</button>
+		
+		<script>
+			function f1(){
+				var p = document.getElementById("p1");
+				console.log(p.innerHTML);
+				console.log(p.innerText);
+			}
+			function f2(){
+				var p = document.getElementById("p1");
+				p.innerHTML = "这是修改的内容";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+-- 1.写出 SQL语句的格式 : 插入 ，更新 ，删除
+create table user(
+	name varchar(20),
+   tel varchar(20),
+   content varchar(40),
+   date  date
+)
+insert into user values ('张三','13333663366','大专毕业','2006-10-11');
+insert into user values ('张三','13612312331','本科毕业','2006-10-15');
+insert into user values ('张四','021-55665566','中专毕业','2006-10-15');
+-- (a).有一新记录(小王 13254748547 高中毕业 2007-05-06)请用SQL语句新增至表中
+insert into user values ('小王','13254748547','高中毕业','2007-05-06');
+-- (b).请用sql语句把张三的时间更新成为当前系统时间
+update user set date = NOW() where name='张三';
+-- (c).请写出删除名为张四的全部记录
+delete from user where name = '张四';
+
+
+
+
+
+create table user1(
+	uid int primary key auto_increment,
+	name varchar(30),
+	phone varchar(20) not null,
+	address varchar(100) not null
+);
+
+create table orders1(
+	oid int primary key,
+	price double, #订单金额
+	uid int,
+	constraint fk_orderid foreign key(uid) references user1(uid)
+);
+insert into user1 values(1,'张三','13564758697','武汉');
+insert into user1 values(2,'李四','13654358697','杭州');
+insert into user1 values(3,'王五','15564097547','深圳');
+insert into user1 values(4,'赵六','18789098597','北京');
+insert into user1 values(5,'钱七','13907558697','上海');
+insert into orders1 values(1001,1000,1);
+insert into orders1 values(1002,280,1);
+insert into orders1 values(1003,650,2);
+insert into orders1 values(1004,120,2);
+insert into orders1 values(1005,90,1);
+insert into orders1 values(1006,810,3);
+insert into orders1 values(1007,200,4);
+
+-- 综合练习 题目
+-- 查询用户的订单,没有订单的用户不显示 
+select name,user1.uid from user1 inner join orders1 on user1.uid = orders1.uid;
+-- 查询所有用户的订单详情
+select * from user1 left join orders1 on user1.uid = orders1.uid;
+-- 查询所有订单的用户详情
+select user1.* from user1 right join orders1 on user1.uid = orders1.uid;
+-- 查看用户为张三的订单详情 
+select * from user1 left join orders1 on user1.uid = orders1.uid where name = '张三';
+-- 查询出订单的价格大于300的所有用户信息。 
+select user1.* from user1 right join orders1 on user1.uid = orders1.uid where price > 300;
+-- 查询订单价格大于300的订单信息及相关用户信息
+select * from user1 right join orders1 on user1.uid = orders1.uid where price > 300;
+-- 查询所有订单信息，每页显示3条
+select * from orders1 limit 0,3;
+select * from orders1 limit 3,3;
+select * from orders1 limit 6,3;

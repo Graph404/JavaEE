@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			ul li{
+				list-style: none;
+				width: 150px;
+				line-height: 50px;
+			}
+			ul li a{
+				text-decoration: none;
+				color: #FF7F50;
+			}
+			.dd{
+				width: 600px;
+				height: 400px;
+				background-color: coral;
+				
+				position: absolute;
+				left: 200px;
+				top: 15px;
+				
+				display: none;
+			}
+			ul li:hover .dd{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="#">家用电器</a>
+				<div class="dd">
+					家用电器。。。。。。
+				</div>
+			</li>
+			<li>
+				<a href="#">手机/运营商/数码</a>
+				<div  class="dd">
+					手机/运营商/数码。。。。。。
+				</div>
+			</li>
+			<li>
+				<a href="#">电脑办公</a>
+				<div  class="dd">
+					电脑办公。。。。。。
+				</div>
+			</li>
+			<li>
+				<a href="#">家具/家电</a>
+				<div class="dd">
+					家具/家电。。。。。。
+				</div>
+			</li>
+		</ul>
+		
+	</body>
+</html>

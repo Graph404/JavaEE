@@ -1,0 +1,33 @@
+-- 1.创建一个数据库：restaurant（餐厅）。
+create database if not exists restaurant character set 'utf8';
+use restaurant
+-- 2.在这个数据库中创建一个表
+create table dishes (
+	id int(10) not null primary key,
+	name varchar(10) not null,
+	favorite int not null check (favorite between 1 and 5),
+	indate date not null,
+	ordertimes int(10) not null
+);	
+-- 3.然后使用命令查看这张表的字段信息。
+desc dishes;
+-- 4.这时候我们会发现这个菜没有价格，于是我们再向这张表中加入一个字段（price，这个价格单位为元，需要能精确到分）。
+alter table dishes add price double(5,2) not null;
+-- 5.完成后，我对加入时间的字段名indate不太满意，修改为了createdate。
+alter table dishes change indate createdate text;
+-- 6.然后我现在不太喜欢被点次数这个字段，于是把他删除掉。
+alter table dishes drop ordertimes;
+-- 7.然后我准备把所有字段的类型规定为：id int， name varchar（50）
+alter table dishes modify name varchar(50);
+-- 8.添加数据
+insert into dishes 
+		(id , name , favorite , createdate , price)
+		VALUES
+			(1,'卤肉饭',4,'2014-10-11',10.0),
+			(2,'鸡腿饭',3,'2014-01-10',11.0),
+			(3,'鸡腿',5,'2014-01-20',6.0),
+			(4,'秘制烧鹅',5,null,63.0);
+-- 9.按照价格进行降序排列
+select * from dishes order by price;
+-- 10.计算点所有菜需要花费的金额
+select sum(price) from dishes;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style> 
+			img{
+				width: 360px;
+				height: 200px;
+				position: fixed;
+				right: 0px;
+				bottom: -360px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./img/55.jpg" id="gg">
+		
+		<script>
+			var bot = -360;
+			//定义一个定时任务
+			var t = window.setInterval(function(){
+				//获取img元素节点
+				var img = document.getElementById("gg");
+				//设置img的display属性
+				//img.style.display = "inline-block";
+				if(bot <= 0){
+					bot+=1;
+				}else{
+					window.clearInterval(t);
+				}
+				img.style.bottom = bot+"px";
+			},20);
+		</script>
+		
+		
+	</body>
+</html>

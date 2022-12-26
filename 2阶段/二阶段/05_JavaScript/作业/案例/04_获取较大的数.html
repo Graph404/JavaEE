@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" id="num1">
+		<input type="number" id="num2">
+		<input type="number" id="num3" />
+		<button onclick="f1()">获取最大的那个数字</button>
+		
+		<script>
+			function f1(){
+				//1、获取两个输入框中的内容
+				var num1 = document.getElementById("num1").value;
+				var num2 = document.getElementById("num2").value;
+				var num3 = document.getElementById("num3").value;
+				
+				
+				//2、判断较大的数
+				var num = parseInt(num1) > parseInt(num2) ? num1 : num2;
+				num = parseInt(num) > parseInt(num3) ? num : num3;
+				console.log("最大的数字为："+num);
+			}
+		</script>
+		
+	</body>
+</html>

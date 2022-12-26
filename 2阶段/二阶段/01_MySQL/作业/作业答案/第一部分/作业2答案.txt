@@ -1,0 +1,11 @@
+-- 1.查询学生平均分
+select sname,avg(score) from stuscore group by sname;
+-- 2.查询姓名是张三的学生 成绩和
+select sname,sum(score) from stuscore where sname = '张三';
+-- 3.将学生信息按照 分数倒序
+select * from stuscore order by score desc;
+-- 4.分别获取学生信息中 分数最低的学生姓名和分数最高的学生姓名
+select sname,score from stuscore order by score desc limit 1;
+select sname,score from stuscore order by score limit 1;
+-- 5.查询两门及两门以上不及格的学生姓名
+select sname,count(*)  from stuscore where score<60  group by sname having count(*)>=2;

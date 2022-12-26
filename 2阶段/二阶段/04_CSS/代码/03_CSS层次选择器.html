@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#city1 li{
+				font-size: 30px;
+				color:red;
+			}
+			
+			/* 后代 */
+			/* #d1 p{
+				color: #6495ED;
+			} */
+			
+			/* 子代 */
+			/* #d1>p{
+				color: #6495ED;
+			} */
+			
+			/* 兄弟选择器 */
+			#wh~li{
+				background-color: #8A2BE2;
+			}
+			/* 相邻兄弟选择器 */
+			#hg+li{
+				background-color: #ff9999;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			层次选择器：
+				后代选择器
+					语法：
+						选择器1 选择器2{
+							属性名:属性值;
+							...
+						}
+				子代选择器
+					语法：
+						选择器1>选择器2{
+							属性名:属性值;
+							...
+						}
+				兄弟选择器
+					语法：
+						选择器1~选择器2{
+							属性名:属性值;
+							...
+						}
+				相邻兄弟选择器
+					语法：
+						选择器1+选择器2{
+							属性名:属性值;
+							...
+						}
+		 -->
+		
+		<ul id="city1">
+			<li id="wh">武汉</li>
+			<li>北京</li>
+			<li>上海</li>
+		</ul>
+		<ul>
+			<li id="hg">鹤岗</li>
+			<li>曹县</li>
+			<li>京山</li>
+		</ul>
+		
+		
+		<div id="d1">
+			<p>hello,这是后代(子代)</p>
+			<div>
+				<p>hello,这是后代</p>
+			</div>
+		</div>
+	</body>
+</html>

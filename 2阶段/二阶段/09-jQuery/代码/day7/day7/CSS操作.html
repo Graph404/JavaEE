@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.c1{
+				border: 1px solid red; 
+				width: 200px; 
+				height: 200px;
+			}
+			
+			.c2{
+				border: 1px solid blue; 
+				background-color: greenyellow;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+		
+		<button type="button">点击</button>
+	</body>
+</html>
+<script>
+	$(function(){
+		$(":button").click(function(){
+//			$("div").addClass("c1")
+//					.addClass("c2")
+//					.removeClass("c1");
+//			$("div").attr("style", "border: 1px solid blue");
+			$("div").css("border", "1px solid red")
+					.height(200)
+					.width(200);
+//			$("div").css({
+//				"border":"1px solid red",
+//				"width":"200px",
+//				"height":"200px"
+//			})
+		})
+	})
+</script>

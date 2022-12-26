@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#tp:hover{
+				width: 300px;
+				height: 300px;
+			}
+			button:active{
+				width: 100px;
+				height: 100px;
+			}
+			
+			li:first-child{
+				color: red;
+			}
+			#username:focus{
+				background-color: #6495ED;
+			}
+			a:link{
+				color: red;
+			}
+			a:visited{
+				color: gainsboro;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			伪类选择器：(状态)
+				静态伪类：
+					:first-child
+					:focus
+					:visited   点击过的状态
+					:link      点击之前的状态
+					
+				动态伪类：
+					:hover    当鼠标悬停的状态
+					:active   当鼠标点击的状态
+		 -->
+		 
+		<img id="tp" src="img/002.png" width="200px" height="200px"> 
+		
+		<button>这是一个神奇的按钮</button>
+		
+		<ul id="city1">
+			<li>武汉</li>
+			<li>北京</li>
+			<li>上海</li>
+		</ul>
+		
+		<input id="username"/>
+		
+		<a href="cc.html" target="_blank">点击一下</a>
+		
+		 
+	</body>
+</html>

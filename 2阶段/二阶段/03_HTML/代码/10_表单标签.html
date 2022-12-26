@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			表单标签：form标签
+				form标签的属性：
+					action:表单提交的后端地址
+					method:表单提交的方式(get(默认)、post)
+					enctype:表单提交的格式:
+						application/x-www-form-urlencoded(默认)：将数据以key-value形式提交到后端
+						multipart/form-data：将数据以二进制流的形式提交到后端(请求方式必须是post请求)
+				input标签：
+					type:输入框的格式
+					name:未来提交数据key
+					value:未来提交的value
+					placeholder:输入框提示内容
+					readonly:只读
+					disabled:不可用
+					checked:单选和复选框默认选中
+					
+					
+					max:数值输入框最大值
+					min:数值输入框最小值
+					maxlength:最大字符
+					size:设置输入框的宽度
+					pattern:设置正则表达式
+					
+				
+				select: 下拉框
+				textarea: 文本域
+				button: 按钮(用在表单中有提交效果)
+		 -->
+		 <form>
+			 用户名：<input type="text" name="username"  placeholder="请输入用户名" value="21" pattern="[0-9]{3}"><br>
+			 密码：<input type="password" name="password" size="100" maxlength="10"><br>
+			 性别：
+				<input type="radio" name="sex" value="男">男
+				<input type="radio" name="sex" value="女" checked="checked">女<br>
+			 爱好：
+				 <input type="checkbox" name="hobby" value="唱"  checked>唱
+				 <input type="checkbox" name="hobby" value="跳">跳
+				 <input type="checkbox" name="hobby" value="rap" disabled>rap
+				 <input type="checkbox" name="hobby" value="打篮球" >打篮球<br>
+			 城市：
+				<select>
+					<option disabled>------请选择------</option>
+					<option>武汉</option>
+					<option>上海</option>
+					<option selected>北京</option>
+					<option>深圳</option>
+				</select><br>
+			 描述：
+				<textarea rows="10" cols="100"></textarea><br>
+			 日期：<input type="date"><input type="time"><input type="datetime-local"><br>
+			 年龄：<input type="number" name="age" max="150" min="0"/><br>
+			 邮箱：<input type="email" name="email"><br>
+			 头像：<input type="file" name="file"><br>
+				 <input type="image" src="img/1.jpg" width="50px" height="50px">
+				 <input type="hidden" name="id" value="10"/>
+				 <input type="reset" value="重开"/>
+				 <input type="submit" value="OK" disabled>
+				 <button>按钮如果写在了表单中那么就会默认有提交表单的效果</button>
+		 </form>
+		<button>啥也不是，未来要自己绑定事件</button>
+	</body>
+</html>

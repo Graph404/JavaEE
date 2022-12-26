@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#xgg{
+				width: 360px;
+				height: 200px;
+				position: fixed;
+				right: 0px;
+				bottom: -360px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<img src="../img/3.jpg" id="xgg">
+		<script>
+			var bot = -360;
+			var t = window.setInterval(function(){
+				var img = document.getElementById("xgg");
+				
+				if(bot <= 0){
+					bot ++;
+				}else{
+					clearInterval(t);
+				}
+				img.style.bottom = bot + "px";
+			},3);
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动</title>
+    <script type="text/javascript">
+        var citys = [["武汉","孝感","仙桃"],["信阳","驻马店","郑州"],["成都","德阳","汶川"]];
+        function change(value) {
+            var city = document.getElementById("city");
+            var s = "----请选择城市----";
+            for(var i = 0 ; i < citys.length;i++){
+                s+="<option>"+citys[value][i]+"</option>";
+            }
+            city.innerHTML = s;
+        }
+    </script>
+</head>
+<body>
+    <select id="sheng" onchange="change(this.value)">
+        <option>----请选择省份----</option>
+        <option value="0">湖北省</option>
+        <option value="1">河南省</option>
+        <option value="2">四川省</option>
+    </select>
+    <select id="city">
+        <option>----请选择城市----</option>
+    </select>
+</body>
+</html>

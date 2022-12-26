@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button onclick="f1()">点击打开页面</button>
+		<button onclick="f2()">点击关闭页面</button>
+		<script>
+			//window属性
+			console.log(window.innerWidth,window.innerHeight);
+			//window方法
+			
+			//弹窗方法
+			//window.alert("警告框");
+			
+			//询问弹窗
+			// if(window.confirm("确定要删除吗")){
+			// 	alert("删除");
+			// }else{
+			// 	alert("取消");
+			// }
+			
+			//输入弹窗
+			//console.log(window.prompt("请输入内容"))
+			
+			function f1(){
+				window.open("13_JS操作元素节点.html")
+			}
+			function f2(){
+				window.close();
+			}
+		</script>
+		
+	</body>
+</html>

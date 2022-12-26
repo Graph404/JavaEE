@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="file" name="file" onchange="changeImg(this)" multiple="multiple"><br>
+		<img id="img" width="100px" height="100px" style="visibility: hidden;">
+		<input type="submit" value="提交" />
+		
+		<script>
+			function changeImg(input){
+				var img = document.getElementById("img");
+				img.style.visibility = 'visible';
+				
+				//通过选择图片创建一个url地址
+				var url = window.URL.createObjectURL(input.files[0]);
+				//设置img的src属性
+				img.src = url;
+			}
+			
+		</script>
+	</body>
+</html>

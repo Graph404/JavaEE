@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background-color: #6495ED;
+			}
+			.loginDiv{
+				width: 50%;
+				height: 400px;
+				margin: 50px auto;
+				padding: 20px;
+				background-color: #f2f2f2;
+				border-radius: 10px;
+			}
+			.a1{
+				width: 100%;
+				/* 内容+边距+边框    允许元素中使用边距和边框*/
+				box-sizing: border-box;
+				padding: 10px;
+				border-radius: 5px;
+				margin: 15px 0px;
+			}
+			
+			input[type=submit]{
+				width: 100%;
+				background-color: #45a049;
+				
+				line-height: 40px;
+				border-radius: 5px;
+				color: white;
+				margin-top: 30px;
+			}
+			input[type=submit]:hover{
+				opacity: 0.8;
+			}
+			
+			h1{
+				color: white;
+				text-align: center;
+				margin-top: 100px;
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<h1>欢迎使用xxx登录系统</h1>
+		
+		<div class="loginDiv">
+			<form action="#">
+				<label for="username">用户名</label>
+				<input type="text" id="username" class="a1">
+				<label for="password">密码</label>
+				<input type="password" id="password" class="a1">
+				
+				<label for="username">身份</label>
+				<select class="a1">
+					<option>管理员</option>
+					<option>VIP</option>
+					<option>游客</option>
+				</select>
+				<input type="submit" value="登录"/>
+			</form>
+		</div>
+	</body>
+</html>

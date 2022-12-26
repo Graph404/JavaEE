@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.s1{
+				width: 100%;
+				height: 500px;
+				line-height: 500px;
+				text-align: center;
+				font-size: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text"/><button onclick="f1()" id="btn">点击获取验证码<span id="time"></span></button>
+		
+		
+		<div class="s1" id="dd">10</div>
+		
+		<script>
+			var num = 10;
+			var t = setInterval(function(){
+				num--;
+				var div = document.getElementById("dd");
+				div.innerHTML = num;
+				
+				if(num < 0){
+					//取消定时任务
+					clearInterval(t);
+					//修改div内容
+					div.innerHTML = "<a href='http://www.baidu.com'>上链接</a>"
+				}
+				
+			},1000)
+		
+		
+		
+			function f1(){
+				//开启定时任务
+				var count = 10;
+				var t = setInterval(function(){
+					var span = document.getElementById("time");
+					span.innerHTML = "(" + count + "秒)";
+					count--;
+					if(count < 0){
+						//取消定时任务
+						clearInterval(t);
+						//让按钮可用
+						document.getElementById("btn").disabled = false;
+						//将span的内容设置为空
+						span.innerHTML = "";
+					}
+				},1000)
+				document.getElementById("btn").disabled = true;
+			}
+		</script>
+	</body>
+</html>

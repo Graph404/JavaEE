@@ -1,0 +1,35 @@
+-- 分页查询练习
+-- 1、查询工资最高的部门
+select sum(sal) allsal from emp group by deptno order by allsal desc limit 1;
+-- 2、查询工资前五的员工信息
+select * from emp order by sal desc limit 0,5;
+
+
+-- 分组查询练习
+-- 1、查询每个部门的名称、人数、平均工资
+select count(*),deptno,avg(sal) from emp group by deptno;
+-- 2、查询平均工资高于2000的职位名称以及平均工资
+select avg(sal),job from emp group by job having avg(sal)>2000;
+
+
+-- 子查询练习
+-- 1、低于平均工资的员工信息
+select * from emp where sal < (select avg(sal) from emp)
+
+-- 2、查询公司最早的员工
+select * from emp where hiredate = (select min(hiredate) from emp);
+
+-- 3、查询与WARD部门相同，工资相等的员工信息
+select * from emp where deptno = 
+		(select deptno from emp where ename = 'ward') AND
+		sal = (select sal from emp where ename = 'ward') and ename != 'ward'
+
+-- 子查询中in any all练习
+-- 1、查询工资与经理相同的员工信息
+select *from emp where sal in (select sal from emp where job = 'manager') and job != 'manager'
+
+-- 2、查询工资比经理高的员工信息
+select *from emp where sal >all (select sal from emp where job = 'manager') and job != 'manager'
+
+-- 3、查询工资比经理底的员工信息
+select *from emp where sal <any (select sal from emp where job = 'manager') and job != 'manager'

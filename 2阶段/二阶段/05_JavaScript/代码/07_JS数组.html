@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 
+			js数组:
+				1、数组中可以存储任意类型的数据
+				2、数组的长度可以改变
+		 
+			定义数组
+				1、var 数组名 =  [元素1,...];
+				2、var 数组名 = new Array(元素1,...);
+				3、var 数组名 = new Array(长度);
+				
+			数组使用
+				
+			改变数组长度：
+				
+			数组常用方法
+		 -->
+		<script>
+			//方式1：
+			//var arr = [1,"jack",new Date(),1.25];
+			//console.log(arr);
+			//方式2：
+			//var arr = new Array(2,"rose",new Date(),1.25);
+			//console.log(arr);
+			//方式3：
+			//var arr = new Array(3);
+			//console.log(arr);
+			
+			
+			//var arr = [1,"jack",new Date(),1.25];
+			
+			//存值
+			//arr[0] = 100;
+			//arr[1] = "rose";
+			
+			//取值
+			//console.log(arr[0]);
+			//console.log(arr[1]);
+			
+			//数组的长度
+			//console.log(arr.length);
+			
+			
+			//数组遍历
+			//for(var i = 0 ; i < arr.length ; i++){
+			//	console.log(arr[i]);
+			//}
+			
+			
+			//举例：遍历JSON数组
+			//var products = [{id:1,name:"xiaomi10",price:1999},{id:2,name:"xiaomi11",price:2999},{id:3,name:"xiaomi12",price:3999}];
+			//for (var i = 0; i < products.length; i++) {
+			//	console.log(products[i].id+"--->"+products[i].name+"--->"+products[i].price);
+			//}
+			
+			
+			
+			//var arr = [1,"jack",new Date(),1.25];
+			//arr.length = 2;
+			//console.log(arr);
+			//arr.length = 0;
+			//console.log(arr);
+			
+			//arr.length =5;
+			//console.log(arr);
+			//arr[5] = "hello";
+			
+			// for (var i = 0; i < arr.length; i++) {
+			// 	console.log(arr[i]);
+			// }
+			
+			//forin循环   过滤undefined
+			//for(var i  in arr){
+			//	console.log(arr[i]);
+			//}
+			var arr = [1,"jack",new Date(),1.25];
+			arr.push("cxk");
+			console.log(arr);
+			console.log(arr.pop())
+			console.log(arr);
+			
+			arr.splice(1,1);
+			console.log(arr);
+		</script>
+	</body>
+</html>

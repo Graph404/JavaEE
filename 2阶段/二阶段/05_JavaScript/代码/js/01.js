@@ -1,0 +1,1 @@
+alert("hello,外部的js文件");

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="citySelect">
+			<option value="">请选择</option>
+			<option value="1">武汉</option>
+			<option value="2">黄石</option>
+		</select>
+		<input type="button" value="删除" />
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+<script>
+	$(function(){
+		$(":button").click(function(){
+			$("#citySelect option").remove(":gt(0)"); // 删除除了请选择以外的option
+		});
+	});
+</script>

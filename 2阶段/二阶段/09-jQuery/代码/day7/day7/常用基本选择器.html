@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	</head>
+	<body>
+		<table border="1" cellspacing="1" cellpadding="1">
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>张三</td>
+				<td>20</td>
+			</tr>
+		</table>
+		<input type="checkbox" /><br />
+		<input type="checkbox" />
+		<input type="checkbox"/>
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+	</body>
+</html>
+<script>
+	$(function(){
+		$("tr:odd").css("background-color", "aquamarine");
+		$("tr:even:not(:first)").css("background-color", "darkred");
+		
+		
+		$("input:first").click(function(){
+			var n = $("input:first").prop("checked");
+			$("input:not(:first)").prop("checked", n);
+		})
+	});
+</script>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			Java方法组成：
+				访问修饰符 修饰符 返回值类型 方法名(参数列表){ 方法体 }
+			
+
+			JS函数定义：
+				命名函数
+					语法： 
+						function 函数名(参数列表){
+							函数体;
+						}
+				匿名函数
+						function(参数列表){
+							函数体;
+						}
+			JS函数的调用：
+				函数名(参数);
+				
+			JS函数参数的特点：	
+				1、如果实参个数比形参个数多，那么后面的参数无效
+				2、如果实参个数比形参个数少，那么后面形参的值为undefined
+				3、函数中的参数都会被封装到arguments数组中
+				4、JS函数不存在重载
+				
+			JS的返回值
+				无需任何声明直接在函数内部使用return即可
+				
+		 -->
+		 <script type="text/javascript">
+		 	function f1(){
+				console.log("hello,f1函数");
+			}
+			f1();
+			
+			function f2(a,b){
+				console.log("hello,f2函数"+(a+b));
+			}
+			f2(10,20);
+			
+			var f3 = function(){
+				console.log("hello,匿名函数");
+			}
+			f3();
+			
+			
+			function f4(a,b){
+				return a + b;
+			}
+			var a = f4(10,20);
+			console.log(a);
+			
+			function f5(name){
+				if(!name){
+					return;
+				}
+				console.log(name);
+			}
+			f5("a");
+			
+			
+			function f6(a,b){
+				console.log(a,b);
+			}
+			f6(10,20,30);
+			
+			function f7(){
+				var sum = 0;
+				for (var i = 0; i < arguments.length; i++) {
+					sum += arguments[i];
+				}
+				return sum;
+			}
+			console.log(f7(1,2,3,4,5,6,7));
+			
+			
+			function f8(){
+				console.log("无参")
+			}
+			function f8(a,b){
+				console.log("有参")
+			}
+			f8();
+			
+		 </script>
+	</body>
+</html>

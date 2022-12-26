@@ -1,0 +1,26 @@
+create table shopping(
+	name varchar(10) not null,
+	goods varchar(15) not null,
+	price double(5,2)
+);
+
+insert into shopping(name,goods,price)
+	values('刘婷','洗发露',56),
+	('张飞','洗衣液',28),
+	('刘婷','毛巾',27),
+	('赵明','毛巾',23),
+	('王宇','洗衣粉',12),
+	('张飞','洗衣液',28),
+	('赵明','洗衣液',28),
+	('张飞','洗衣粉',12);
+-- 1.	查询有多少位顾客到该店消费
+select name from shopping group by name;
+-- 2.	查询该店最近售出了哪几种商品
+select goods from shopping group by goods;
+-- 3.	查询该店销售额最高和最低的商品
+select sum(price) from shopping group by name order by price limit 0,1;
+select sum(price) from shopping group by name order by price desc limit 0,1;
+-- 4.	查询该店商品销售金额并按降序排列
+select sum(price) from shopping group by name order by price;
+-- 5.	查询该店商品中销售额2到3名的商品
+select sum(price) from shopping group by name order by price limit 1,2;

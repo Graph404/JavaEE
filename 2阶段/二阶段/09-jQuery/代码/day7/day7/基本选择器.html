@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	</head>
+	<body>
+		<div id="div1">AAA</div>
+		<div class="c1">BBB</div>
+		<div>CCC</div>
+		<div class="c1">DDD</div>
+		<div>EEE</div>
+	</body>
+</html>
+<script>
+//	var arr = document.getElementsByTagName("div");
+//	for (n in arr) {
+//		arr[n].style.backgroundColor = "royalblue";
+//	}
+// 获取所有的div
+//	$("div").css("background-color", "chartreuse");
+// 获取样式为c1的元素
+//$(".c1").css("background-color", "chartreuse");
+// 获取id为div1的元素
+//$("#div1").css("background-color", "chartreuse");
+
+$("#div1,.c1").css("background-color", "chartreuse");
+</script>

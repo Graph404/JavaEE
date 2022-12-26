@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		红方:
+		<select id="s1">
+			<option value="0">石头</option>
+			<option value="1">剪刀</option>
+			<option value="2">布</option>
+		</select>
+		VS蓝方:
+		<select id="s2">
+			<option value="0">石头</option>
+			<option value="1">剪刀</option>
+			<option value="2">布</option>
+		</select>
+		<button onclick="pk()">PK</button>
+		<span id="resultSpan"></span>
+		<script>
+			function pk(){
+				var s1 = document.getElementById("s1").value;
+				var s2 = document.getElementById("s2").value;
+				
+				//判断输赢： 0 石头  1 剪刀   2 布  赢了：-1  2   输了：1 -2
+				var ss = s1 - s2;
+				var result;
+				if(ss == -1 || ss == 2){
+					result = "红方取得胜利";
+				}else if(ss == 1 || ss == -2){
+					result = "蓝方取得胜利";
+				}else{
+					result = "双方平局";
+				}
+				document.getElementById("resultSpan").innerHTML = result;
+				
+			}
+		
+		</script>
+	</body>
+</html>

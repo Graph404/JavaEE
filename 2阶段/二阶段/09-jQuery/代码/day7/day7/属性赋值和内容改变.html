@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	</head>
+	<body>
+		<a id="a1" href="http://taobao.com">淘宝</a><br />
+		<input type="button" value="点击改变" onclick="fn1()"/>
+		<input type="button" id="btn1" value="点击改变1"/><br />
+		<input type="checkbox" id="chk1" checked="checked" /><br />
+		<input type="text" id="txt1" value="123" />
+	</body>
+</html>
+<script>
+	function fn1(){
+		// 得到元素
+		var a1 = document.getElementById("a1");
+		// 改变属性
+//		alert(a1.href);
+		a1.href = "https://www.baidu.com";
+		// 改变内容
+//		a1.innerText = "百度"; // 改变为文本内容
+		a1.innerHTML = "<img src='img/19.jpg' width='100px'>"; // 改变为标签内容
+	}
+	
+	$(function(){
+		$("#btn1").click(function(){
+			// 获取属性值
+//			console.log($("#a1").attr("href"));
+//			$("#a1").attr("href", "https://www.baidu.com");
+//			$("#a1").text("百度"); // 相当于innerText
+//			$("#a1").html("<img src='img/19.jpg' width='100px'>"); // 相当于innerHTML
+			
+			$("#a1").attr("href", "https://www.baidu.com")
+					.html("<img src='img/19.jpg' width='100px'>")
+					.css("background-color", "red");
+					
+			$("#chk1").prop("checked", false);
+			// 通用写法
+//			$("#txt1").attr("value", "abc");	
+			// 简化写法
+			// 文本框取值
+			var t = $("#txt1").val();
+			// 文本框设置值
+			$("#txt1").val("aaaa");
+		});
+	});
+</script>

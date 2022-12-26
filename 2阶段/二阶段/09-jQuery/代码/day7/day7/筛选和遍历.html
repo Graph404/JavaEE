@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li>2222</li>
+			<li>3333</li>
+		</ul>
+		<ul>
+			<li>4444</li>
+			<li>5555</li>
+			<li>6666</li>
+		</ul>
+		<ul>
+			<li>7777</li>
+			<li>8888</li>
+			<li>9999</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+<script>
+	$(function(){
+//		$("li:eq(2)").css("color", "red");
+		fn1($("li"));
+	})
+	
+	function fn1(n){
+		n.eq(2).css("color", "red");
+	}
+	
+	$(function(){
+	    var arr = [10,20,30,40,50];
+	    $.each(arr, function(index, obj) {
+	        console.log(index) // 下标
+	        console.log(obj) // 数组元素
+	    });
+	})
+</script>

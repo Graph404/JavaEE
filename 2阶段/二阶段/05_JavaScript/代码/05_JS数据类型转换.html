@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<!-- 
+			string类型
+				1、string在进行四则运算除了加法运算以外，会将自身转换成number类型
+				2、string在使用加法运算的时候，会当做字符串拼接
+				3、如果希望string做加法运算，那么需要进行类型转换
+			
+			boolean类型 
+				1、string类型非""即真
+				2、number类型非0即真
+				3、undefined是假的
+				4、null是假的
+				5、object类型
+			NaN:not a number 不是一个数字
+			Infinity: 无穷大
+		 -->
+		<script>
+			var a = "12.2";
+			console.log(a-1);
+			console.log(parseInt(a)+1);
+			console.log(parseFloat(a)+1);
+			
+			//var b = " ";
+			//var b = 0;
+			//var b;
+			//var b = null;
+			var b = new Date();
+			if(b){
+				console.log("真的")
+			}else{
+				console.log("假的")
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

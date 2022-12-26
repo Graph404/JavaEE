@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格变色</title>
+	</head>
+	<body>
+		<table width="60%" align="center" border="1px" cellspacing="0px" cellpadding="10px">
+			<tr bgcolor="aqua">
+				<th>编号</th>
+				<th>名称</th>
+				<th>租车时间</th>
+				<th>归还时间</th>
+				<th>状态</th>
+				<th>价格</th>
+			</tr>
+			<tr onmouseover="over(this)" onmouseout="out(this)">
+				<td >1</td>
+				<td>宝马</td>
+				<td>2020-01-20</td>
+				<td>2021-03-20</td>
+				<td>可借</td>
+				<td>300/天</td>
+			</tr>	
+			<tr onmouseover="over(this)" onmouseout="out(this)">
+				<td>1</td>
+				<td>宝马</td>
+				<td>2020-01-20</td>
+				<td>2021-03-20</td>
+				<td>可借</td>
+				<td>300/天</td>
+			</tr>	
+			<tr onmouseover="over(this)" onmouseout="out(this)">
+				<td>1</td>
+				<td>宝马</td>
+				<td>2020-01-20</td>
+				<td>2021-03-20</td>
+				<td>可借</td>
+				<td>300/天</td>
+			</tr>	
+			<tr onmouseover="over(this)" onmouseout="out(this)">
+				<td>1</td>
+				<td>宝马</td>
+				<td>2020-01-20</td>
+				<td>2021-03-20</td>
+				<td>可借</td>
+				<td>300/天</td>
+			</tr>	
+		</table>
+		
+		<script>
+			function over(tr){
+				//更改tr颜色
+				tr.bgColor = "#996633";
+			}
+			function out(tr){
+				tr.bgColor = "#ffffff";
+			}
+		</script>
+		
+		
+	</body>
+</html>

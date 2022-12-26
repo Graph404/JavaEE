@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>千锋教育-随机点名系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            font-family: "Microsoft YaHei UI";
+        }
+
+        .logo {
+            text-align: center;
+            margin: 30px auto 30px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: x-large;
+            font-weight: lighter;
+            color: #478fca;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            width: 890px;
+            height: 280px;
+            /*background-color: #cccccc;*/
+            margin: 0 auto;
+            clear: both;
+        }
+
+        .name {
+            width: 100px;
+            height: 40px;
+            line-height: 38px;
+            float: left;
+            background-color: #6fb3e0;
+            color: #f7f7f7;
+            margin-left: 10px;
+            margin-top: 10px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: lighter;
+            box-shadow: 2px 2px 4px #cccccc;
+        }
+
+        #btn {
+            width: 180px;
+            height: 60px;
+            background-color: #428bca;
+            border-radius: 5px;
+            border-style: none;
+            font-weight: lighter;
+            font-size: large;
+            color: #f7f7f7;
+        }
+
+        #btn:hover {
+            box-shadow: 2px 2px 4px #cccccc;
+            cursor: pointer;
+        }
+
+        #btn:focus {
+            outline: none;
+        }
+
+        .btncenter {
+            width: 200px;
+            margin: 120px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="logo"><img src="http://www.mobiletrain.org/images/index/new_logo.png" alt=""></div>
+<h1>JavaEE-2201随机点名系统</h1>
+<div class="box" id="box"></div>
+<br/>
+<br/>
+<br/>
+<div class="btncenter"><input type="button" id="btn" value="点名"/></div>
+<script>
+	// 千锋学员姓名
+    var arr = ["孙纪超","杨爽","汪宇飞","李泽承","黄政国","傅财","吴恢鹏","杜静宜","屈安江","曾余毅","潘晨耀","吕浩亮","张宇航","陈训龙","李德胜","王琪瑞","宋富豪","周萍萍","陈郭玮","顾顺","杨晨","吴圣耀","闫泽浩","冯博","何增","安金阳","李澳","张澳","叶宇晗","贺哲","王邱云","李坤","王舒翔","田力","黄普","聂忠","程港","李超","周康","胡俊","罗竣夫","曹云飞","王子珩","郝鸿杰","李品锋","姜祥辉","荣苑惠","程广","张元培","陈洋","文宇程","吴慕尧","王佳齐","龚世儒","吴金锁","刘宏成","陶禧龙","肖战","高烨","喻希","范峰涛","蔡上康","宋俊豪","荣澳"]
+    // 获取id函数
+    function getID(id) {
+        return document.getElementById(id);
+    };
+	
+    // 动态创建层
+    for (var i = 0; i < arr.length; i++) {
+        var div = document.createElement("div");
+        div.innerText = arr[i];
+        div.className = "name";
+        getID("box").appendChild(div);
+    }
+    ;
+    // 点名
+    getID("btn").onclick = function () {
+        selectOne();
+    };
+	
+	var timeId;
+	
+	function selectOne(){
+		var students = arr.length;
+        // 监视按钮的状态
+        if (getID("btn").value === "点名") {
+            // 定时针
+            timeId = setInterval(function () {
+                // 清空所有层的颜色
+                for (var i = 0; i < arr.length; i++) {
+                    getID("box").children[i].style.background = "";
+                };
+                // 留下当前层的颜色
+                var random = parseInt(Math.random() * students);
+                getID("box").children[random].style.background = "#FF5384";
+            }, 100);
+            getID("btn").value = "停止";
+        } else {
+            //清除计时器
+            clearInterval(timeId);
+            getID("btn").value = "点名";
+        };
+	}
+	
+	document.onkeydown = function(e){
+		if(e.keyCode == 13){
+			selectOne();
+		}
+	}
+</script>
+</body>
+</html>
